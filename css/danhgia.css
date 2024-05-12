@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+/*html,body{*/
+/*    display: grid;*/
+/*    height: 100%;*/
+/*    place-items: center;*/
+/*    text-align: center;*/
+/*    background: #000;*/
+/*}*/
+.container2{
+    /*margin-top: -350px;*/
+    position: relative;
+    width: 400px;
+    height: 250px;
+    /*background: #ffa500;*/
+    padding: 20px 30px;
+    /*border: 3px solid black ;*/
+    border-radius: 5px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 50px;
+
+}
+.container2 .post{
+    display: none;
+}
+.post{
+    width:500px ;
+    height: 550px;
+    margin-left: -80px;
+    margin-top: -275px;
+    background: #cccccc;
+
+
+}
+.container2 .text{
+    font-size: 25px;
+    color: #666;
+    font-weight: 500;
+    text-align: center;
+    padding: 150px;
+}
+
+.star-widget{
+    display:inline-block;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+
+}
+.container2 .edit{
+    position: absolute;
+    right: 10px;
+    top: -205px;
+    font-size: 16px;
+    color: #666;
+    font-weight: 500;
+    cursor: pointer;
+}
+.container2 .edit:hover{
+    text-decoration: underline;
+}
+.container2 .star-widget input{
+    display: none;
+}
+.star-widget label{
+    font-size: 40px;
+    color: #444;
+    padding: 10px;
+    float: right;
+    transition: all 0.2s ease;
+}
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label{
+    color: gold;
+}
+input:checked ~ label{
+    color: gold;
+}
+input#rate-5:checked ~ label{
+    color: gold;
+    /*text-shadow: 0 0 20px #952;*/
+}
+/*#rate-1:checked ~ form header:before{*/
+/*    content: "I just hate it ";*/
+/*}*/
+/*#rate-2:checked ~ form header:before{*/
+/*    content: "I don't like it ";*/
+/*}*/
+/*#rate-3:checked ~ form header:before{*/
+/*    content: "It is awesome ";*/
+/*}*/
+/*#rate-4:checked ~ form header:before{*/
+/*    content: "I just like it ";*/
+/*}*/
+/*#rate-5:checked ~ form header:before{*/
+/*    content: "I just love it ";*/
+/*}*/
+.container form{
+    display: none;
+}
+input:checked ~ form{
+    display: block;
+}
+form header{
+    width: 100%;
+    font-size: 25px;
+    color: gold;
+    font-weight: 500;
+    margin: 5px 0 20px 0;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+form .textarea{
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+}
+form .textarea textarea{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: black;
+    border: 1px solid black ;
+    background: #E2E2E2;
+    padding: 10px;
+    font-size: 17px;
+    resize: none;
+}
+.textarea textarea:focus{
+    border-color: black;
+}
+form .btn{
+    height: 45px;
+    width: 100%;
+    margin: 15px 0;
+}
+form .btn button{
+    height: 100%;
+    width: 100%;
+    border: 1px;
+    outline: none;
+    background: black;
+    color: gold;
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+form .btn button:hover{
+    background: gold;
+    color: black;
+}

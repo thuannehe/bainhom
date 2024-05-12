@@ -1,0 +1,653 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    user-select: none;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+html{
+    scroll-behavior: smooth;
+}
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+html::-webkit-scrollbar-thumb{
+    background: orange;
+    border-radius: 5px;
+}
+html::-webkit-scrollbar{
+    width: 10px;
+}
+body{
+    background: hsl(230, 100%, 98%);
+}
+input,
+button{
+    border: none;
+    outline: none;
+}
+/*Header Start*/
+.search{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: hsla(230, 75%, 15%, .1);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 8rem 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .4s;
+}
+.search_close{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 1.15rem;
+    color: black;
+    cursor: pointer;
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+.nav{
+    height: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container{
+    max-width: 1120px;
+    margin-right: 1.5rem;
+}.container1{
+     max-width: 1120px;
+     margin-right: 1.5rem;
+ }
+
+.container.hide {
+    transition: 0.5s linear;
+    transform: translateY(-100%);
+}
+
+.nav_logo img{
+    width: 200px;
+}
+.nav_actions{
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+}
+.nav_search,
+.nav_login,
+.nav_close,
+.nav_toggle{
+    font-size: 1.25rem;
+    color: #E46928;
+    transition: color .4s;
+    cursor: pointer;
+}
+@media screen and (max-width: 1023px) {
+    .nav_menu {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        background-color: hsl(230, 100%, 97%);
+        box-shadow: 0 8px 16px hsla(230, 75%, 32%, .15);
+        width: 100%;
+        padding-block: 4.5rem 4rem;
+        transition: top .4s;
+        display: none;
+    }
+}
+.nav_list{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+    text-align: center;
+}
+.nav_link{
+    color: #E46928;
+    position: relative;
+    text-decoration: none;
+    font-weight: 500;
+}
+.nav_link:hover{
+    color: #E46928;
+}
+.nav_link:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    margin-bottom: -8px;
+    border-radius: 4px;
+    background: #E46928;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scale(0);
+    transition: transform .3s ease-in-out;
+}
+.nav_link:hover::before{
+    transform-origin: left;
+    transform: scale(1);
+}
+.nav_close{
+    position: absolute;
+    top: 1.15rem;
+    right: 1.5rem;
+}
+.show-menu{
+    display: block;
+    top: 0;
+}
+/*Search*/
+.search_form{
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+    background-color: hsl(230, 100%, 97%);
+    box-shadow: 0 8px 32px hsla(230, 75%, 15%, .2);
+    padding-right: 1rem;
+    border-radius: .5rem;
+    transform: translateY(-1rem);
+    transition: transform .4s;
+}.search_form1{
+     display: flex;
+     align-items: center;
+     column-gap: .5rem;
+     background-color: #E2E2E2;
+     box-shadow: 0 8px 32px hsla(230, 75%, 15%, .2);
+     padding-right: 1rem;
+     border-radius: .5rem;
+     transform: translateY(-1rem);
+     transition: transform .4s;
+ }
+.search_icon{
+    font-size: 1.25rem;
+}.search_input{
+     width: 100%;
+     padding-block: 1rem;
+     background-color: hsl(230, 100%, 97%);
+     color: hsl(230, 12%, 40%);
+ }.search_input1{
+      width: 100%;
+      padding-block: 1rem;
+      height: 50px;
+      background-color: #E2E2E2;
+      color: hsl(230, 12%, 40%);
+  }
+.search_input::placeholder{
+    color: hsl(230, 12%, 40%);
+}.search_input1::placeholder{
+     color: hsl(230, 12%, 40%);
+ }
+.show-search{
+    opacity: 1;
+    pointer-events: initial;
+}
+.show-search .search_form{
+    transform: translateY(0);
+}
+
+@media screen and(min-width: 576px) {
+    .search{
+        padding-top: 15rem;
+    }
+    .search_form{
+        max-width: 450px;
+        margin-inline: auto;
+    }
+    .search_close{
+        width: max-content;
+        top: 5rem;
+        left: 0;
+        right: 0;
+        margin-inline: auto;
+        font-size: 2rem;
+    }
+}
+@media screen and (min-width: 1023px){
+    .nav{
+        height: 5.5rem;
+        column-gap: 3rem;
+    }
+    .nav_close,
+    .nav_toggle{
+        display: none;
+    }
+    .nav_menu{
+        margin-left: auto;
+
+    }
+    .nav_list{
+        flex-direction: row;
+        column-gap: 3rem;
+    }
+}
+
+@media screen and (min-width: 1150px){
+    .container{
+        margin-inline: auto;
+    }
+
+    .container1{
+        margin-inline: auto;
+    }
+}
+
+/*Header End*/
+/*Home Section Start*/
+.home{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.2)), url("../images/phoco2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.home .content{
+    text-align: center;
+    padding-top: 200px;
+}
+.home .content h5{
+    color: white;
+    font-size: 38px;
+    font-weight: 500;
+    text-shadow: 0px 1px 1px black;
+}
+.home .content h1{
+    color: white;
+    font-size: 70px;
+    font-weight: 550;
+    text-shadow: 0px 1px 1px black;
+    margin-top: 5px;
+}
+.changecontent::after{
+    content: '';
+    color: #E46928;
+    text-shadow: 0px 1px 1px black;
+    animation: changetxt 15s infinite linear;
+}
+@keyframes changetxt{
+    0%{content: "Hội An";}
+    10%{content: "Chùa Cầu";}
+    20%{content: "Hội Quán Phúc Kiến";}
+    30%{content: "Cù Lao Chàm";}
+    40%{content: "VinWonders Nam Hội An";}
+    50%{content: "Rừng dừa Bảy Mẫu";}
+    60%{content: "Các làng nghề truyền thống";}
+    70%{content: "Làng gốm Thanh Hà";}
+    80%{content: "Làng mộc Kim Bồng";}
+    90%{content: "Làng rau Trà Quế";}
+    100%{content: "Làng nghề làm lồng đèn";}
+}
+/* Áp dụng hiệu ứng vào một phần tử */
+.element {
+    animation-name: changetxt;
+    animation-duration: 5s; /* Đặt thời gian chạy hiệu ứng là 2 giây */
+}
+.home .content p{
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    text-shadow: 0px 1px 1px black;
+    margin-bottom: 30px;
+}
+.home .content a{
+    padding: 10px;
+    background: white;
+    color: black;
+    letter-spacing: 2px;
+    font-weight: 550;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.home .content a:hover{
+    background: #E46928;
+    color: white;
+}
+@media (max-width: 850px) {
+    .home{
+        background-position: 50%;
+    }
+}
+@media (max-width: 450px) {
+    .home .content h5{
+        font-size: 25px;
+    }
+    .home .content h1{
+        font-size: 38px;
+    }
+    .home .content p{
+        font-size: 13px;
+    }
+}
+/*Home Section End*/
+
+
+/*Section Book Start*/
+.book{
+    background: white;
+    height: 650px;
+    border-radius: 10px;
+    padding: 50px;
+}.book1{
+     background: white;
+     height: 650px;
+     border-radius: 10px;
+     padding: 50px;
+ }
+.main-text h1{
+    text-align: center;
+    text-shadow: 0px 1px black;
+    font-weight: 600    ;
+}
+.main-text h1 span{
+    color: #ffa500;
+}
+.book .card{
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px 6px black;
+}
+.book.card1{
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px 6px black;
+
+}
+.book.row{
+    margin-top: 30px;
+}
+.book form input{
+    padding: 10px;
+    color: black;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px -6px black;
+}
+.book form textarea{
+    border: none;
+    border-radius: 10px;
+    resize: none;
+    box-shadow: 0px 5px 5px -6px black;
+    height: 200px;
+}
+.book .submit{
+    width: 160px;
+    font-size: 16px;
+    font-weight: 550;
+    background: #ffa500;
+    color: white;
+    margin-top: 10px;
+    transition: 0.5s;
+}
+.book .submit:hover{
+    width: 170px;
+}
+@media (max-width: 765px) {
+    .book{
+        padding: 0;
+    }
+    .main-text h1{
+        margin-top: 20px;
+    }
+}
+/*Section Book End*/
+
+
+/*Section Packages Start*/
+.main-txt h1{
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 600;
+    text-shadow: 0px 1px 1px black;
+}
+.main-txt h1 span{
+    color: #ffa500;
+}
+.packages .card{
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+}
+.packages .card img{
+    border-radius: 10px;
+}
+.packages .card .card-body{
+    background: transparent;
+}
+.packages .card .card-body h3{
+    font-size: 25px;
+    font-weight: 600;
+}
+.packages .card .card-body p{
+    font-size: 15px;
+}
+.checked{
+    color: #ffa500;
+}
+.star i{
+    font-size: 15px;
+}
+.packages .card .card-body h6{
+    font-size: 20px;
+}
+.packages .card .card-body a{
+    padding: 10px;
+    text-decoration: none;
+    background: #ffa500;
+    color: white;
+    border-radius: 5px;
+}
+
+/*Section Packages End*/
+
+
+/*Section Services Start*/
+.card1{
+    border-radius:10px ;
+    height: 650px;
+    width: 700px;
+    margin-left: -150px;
+    border: 2px solid none;
+    background: white;
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+}
+.card2{
+    border-radius:10px ;
+    height: 2100px;
+    width: 1418px;
+    margin-left: -150px;
+    border: 2px solid none;
+    background: white;
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+    /*margin-bottom: 20px;*/
+}.card3{
+     border-radius:10px ;
+     height: 800px;
+     width: 1418px;
+     margin-left: -150px;
+     border: 2px solid none;
+     background: white;
+     box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+     margin-top: 515px;
+ }
+
+.khung{
+    width:700px;
+    border: 2px solid none;
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+    margin-left: 560px;
+    margin-top: -650px;
+    background: white;
+    border-radius: 10px;
+    /*height: 650px;*/
+}
+.services{
+    background: #f9f9f9;
+    margin-top: 50px;
+}.services1{
+     background: #f9f9f9;
+     margin-top: 50px;
+     height: 5900px;
+ }
+.ifframe{
+    border-radius: 10px;
+
+}
+.services.card{
+    box-shadow: #cccccc 0px 4px 12px;
+    border: none;
+    cursor: pointer;
+}
+.services .card i{
+    font-size: 80px;
+    text-align: center;
+    color: #ffa500;
+    margin-top: 20px;
+}
+.services .card .card-body h3{
+    font-weight: 600;
+}
+.services .card .card-body{
+    text-align: center;
+}
+/*Section Services End*/
+
+
+/*Section Gallery Start*/
+.gallery{
+    margin-top: 50px;
+}
+.gallery .card{
+    border-radius: 10px;
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+    cursor: pointer;
+}
+.gallery .card img{
+    border-radius: 10px;
+    transition: 0.5s;
+}
+.gallery .card img:hover{
+    transform: scale(1.1);
+}
+/*Section Gallery End*/
+
+/*About Start*/
+.about{
+    margin-top: 50px;
+    background: #f9f9f9;
+}
+.about .card{
+    border-radius: 10px;
+}
+.about .card img{
+    border-radius: 10px;
+}
+.about h2{
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.about p{
+    font-weight: 500;
+}
+#about-btn{
+    width: 150px;
+    height: 38px;
+    border: none;
+    border-radius: 5px;
+    background: #ffa500;
+    color: white;
+    letter-spacing: 2px;
+    font-weight: 550;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+#about-btn:hover{
+    width: 170px;
+}
+@media (max-width: 765px) {
+    .about{
+        padding: 0;
+    }
+}
+/*About End*/
+/*Footer Start*/
+#footer{
+    width: 100%;
+    margin-top: 150px;
+    text-align: center;
+    background: #f9f9f9;
+}
+.footer h1{
+    font-weight: 600;
+    padding-top: 30px;
+    text-shadow: 0px 0px 1px black;
+}
+.footer h1 span{
+    color: #ffa500;
+}
+.social-links i{
+    padding: 10px;
+    border-radius: 20px;
+    background: black;
+    color: white;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.social-links i:hover{
+    background: #ffa500;
+}
+.c {
+    margin-left: 10px;
+    margin-top: 40px;
+    height: 100px;
+    width: 700px;
+}
+/*border: 2px solid black;*/
+.checked{
+    color: #ffa500;
+
+}
+.den{
+    color: #151111;
+
+}
+
+
+.c1{
+    margin-left: 30px;
+    margin-top: -20px;
+    height: 180px;
+    width: 100%;
+    margin-bottom: 30px;
+    border: 2px solid black;
+}
+.c0{
+    height: 800px;
+    width: 1390px;
+    margin-top: -1300px;
+    /*border: 2px solid black;*/
+    margin-left: -150px;
+}
+
+/*Footer End*?
+
+
+
+
